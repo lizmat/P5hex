@@ -2,6 +2,9 @@ Revision history for P5hex
 
 {{$NEXT}}
 
+0.0.5  2018-05-21T15:18:04+02:00
+    - Added original Perl 5 documentation
+
 0.0.4  2018-04-12T13:09:37+02:00
     - Merge oct() code in here to reduce number of CPAN5 distributions.
 
