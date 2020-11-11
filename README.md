@@ -1,12 +1,12 @@
 NAME
 ====
 
-P5hex - Implement Perl's hex() / ord() built-ins
+Raku port of Perl's hex() / oct() built-ins
 
 SYNOPSIS
 ========
 
-    use P5hex; # exports hex() and ord()
+    use P5hex; # exports hex() and oct()
 
     print hex '0xAf'; # prints '175'
     print hex 'aF';   # same
@@ -16,7 +16,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `hex` and `oct` functions of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's `hex` and `oct` built-ins as closely as possible in the Raku Programming Language.
 
 ORIGINAL PERL 5 DOCUMENTATION
 =============================
@@ -60,6 +60,21 @@ ORIGINAL PERL 5 DOCUMENTATION
             trailing non-digits, such as a decimal point ("oct" only handles
             non-negative integers, not negative integers or floating point).
 
+PORTING CAVEATS
+===============
+
+In future language versions of Raku, it will become impossible to access the `$_` variable of the caller's scope, because it will not have been marked as a dynamic variable. So please consider changing:
+
+    hex;
+
+to either:
+
+    hex($_);
+
+or, using the subroutine as a method syntax, with the prefix `.` shortcut to use that scope's `$_` as the invocant:
+
+    .&hex;
+
 AUTHOR
 ======
 
@@ -70,7 +85,7 @@ Source can be located at: https://github.com/lizmat/P5hex . Comments and Pull Re
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
