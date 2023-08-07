@@ -10,7 +10,7 @@
   "description": "Raku port of Perl's hex() / oct() built-ins",
   "license": "Artistic-2.0",
   "name": "P5hex",
-  "perl": "6.c",
+  "perl": "6.d",
   "provides": {
     "P5hex": "lib/P5hex.rakumod"
   },
@@ -23,5 +23,5 @@
   ],
   "test-depends": [
   ],
-  "version": "0.0.8"
+  "version": "0.0.9"
 }
